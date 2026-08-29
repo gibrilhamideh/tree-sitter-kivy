@@ -1,0 +1,29 @@
+# Node
+node_modules/
+npm-debug.log*
+
+# Generated binaries
+parser.so
+*.so
+*.dylib
+*.dll
+*.wasm
+
+# Build output
+build/
+target/
+
+# Test and coverage caches
+.cache/
+coverage/
+.pytest_cache/
+__pycache__/
+
+# Python environments
+.venv/
+*.egg-info/
+
+# Editor and operating-system files
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,95 @@
+==================
+Rule and properties
+==================
+
+<RootView>:
+    orientation: "vertical"
+    padding: dp(12)
+
+---
+
+(source_file
+  (rule
+    (selector
+      (class_name))
+    (block
+      (property
+        (inline_property
+          (property_name
+            (identifier))
+          (expression
+            (string))))
+      (property
+        (inline_property
+          (property_name
+            (identifier))
+          (expression
+            (identifier)
+            (parenthesized_expression
+              (number))))))))
+
+==================
+Nested widgets and ids
+==================
+
+<RootView>:
+    BoxLayout:
+        id: content
+        Button:
+            id: submit_button
+            text: "Submit"
+
+---
+
+(source_file
+  (rule
+    (selector
+      (class_name))
+    (block
+      (widget
+        (class_name)
+        (block
+          (property
+            (inline_property
+              (property_name
+                (identifier))
+              (expression
+                (identifier))))
+          (widget
+            (class_name)
+            (block
+              (property
+                (inline_property
+                  (property_name
+                    (identifier))
+                  (expression
+                    (identifier))))
+              (property
+                (inline_property
+                  (property_name
+                    (identifier))
+                  (expression
+                    (string)))))))))))
+
+==================
+Dynamic rule
+==================
+
+<StatusCard@BoxLayout+ThemableBehavior>:
+    orientation: "horizontal"
+
+---
+
+(source_file
+  (rule
+    (selector
+      (class_name)
+      (class_name)
+      (class_name))
+    (block
+      (property
+        (inline_property
+          (property_name
+            (identifier))
+          (expression
+            (string)))))))

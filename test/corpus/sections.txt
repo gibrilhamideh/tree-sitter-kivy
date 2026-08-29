@@ -1,0 +1,208 @@
+
+==================
+Named section owns its body
+==================
+
+<RootView>:
+    # ======================== #
+    # Optional context
+    # section: Stage Navigator
+    # More context
+    # ======================== #
+    FnBoxLayout:
+        orientation: "horizontal"
+
+    # Ordinary body comment.
+    UIText:
+        text: "Hello"
+
+---
+
+(source_file
+  (rule
+    (selector
+      (class_name))
+    (block
+      (section
+        (section_leading_comment)
+        (section_leading_comment)
+        (section_marker)
+        (section_name)
+        (section_continuation)
+        (section_continuation)
+        (section_fold
+          (section_body
+            (widget
+              (class_name)
+              (block
+                (property
+                  (inline_property
+                    (property_name
+                      (identifier))
+                    (expression
+                      (string))))))
+            (comment)
+            (widget
+              (class_name)
+              (block
+                (property
+                  (inline_property
+                    (property_name
+                      (identifier))
+                    (expression
+                      (string))))))))))))
+
+==================
+Blank line ends attached comments
+==================
+
+<RootView>:
+    # section: Danger Zone
+
+    # This belongs to the section body.
+    UIButton:
+        text: "Delete"
+
+---
+
+(source_file
+  (rule
+    (selector
+      (class_name))
+    (block
+      (section
+        (section_marker)
+        (section_name)
+        (section_fold
+          (section_body
+            (comment)
+            (widget
+              (class_name)
+              (block
+                (property
+                  (inline_property
+                    (property_name
+                      (identifier))
+                    (expression
+                      (string))))))))))))
+
+==================
+Same-level section starts a new body
+==================
+
+<RootView>:
+    # ======================== #
+    # section: First
+    # ======================== #
+    UIText:
+        text: "First"
+
+    # ======================== #
+    # section: Second
+    # ======================== #
+    UIButton:
+        text: "Second"
+
+---
+
+(source_file
+  (rule
+    (selector
+      (class_name))
+    (block
+      (section
+        (section_leading_comment)
+        (section_marker)
+        (section_name)
+        (section_continuation)
+        (section_fold
+          (section_body
+            (widget
+              (class_name)
+              (block
+                (property
+                  (inline_property
+                    (property_name
+                      (identifier))
+                    (expression
+                      (string)))))))))
+      (section
+        (section_leading_comment)
+        (section_marker)
+        (section_name)
+        (section_continuation)
+        (section_fold
+          (section_body
+            (widget
+              (class_name)
+              (block
+                (property
+                  (inline_property
+                    (property_name
+                      (identifier))
+                    (expression
+                      (string))))))))))))
+
+==================
+Nested section belongs to its parent
+==================
+
+<RootView>:
+    # section: Outer
+    FnBoxLayout:
+        # ======================== #
+        # section: Nested
+        # ======================== #
+        UIText:
+            text: "Nested"
+
+    # section: Next
+    UIButton:
+        text: "Next"
+
+---
+
+(source_file
+  (rule
+    (selector
+      (class_name))
+    (block
+      (section
+        (section_marker)
+        (section_name)
+        (section_fold
+          (section_body
+            (widget
+              (class_name)
+              (block
+                (section
+                  (section_leading_comment)
+                  (section_marker)
+                  (section_name)
+                  (section_continuation)
+                  (section_fold
+                    (section_body
+                      (widget
+                        (class_name)
+                        (block
+                          (property
+                            (inline_property
+                              (property_name
+                                (identifier))
+                              (expression
+                                (string))))))))))))))
+      (section
+        (section_marker)
+        (section_name)
+        (section_fold
+          (section_body
+            (widget
+              (class_name)
+              (block
+                (property
+                  (inline_property
+                    (property_name
+                      (identifier))
+                    (expression
+                      (string))))))))))))
+

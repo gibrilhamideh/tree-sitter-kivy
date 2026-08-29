@@ -1,0 +1,38 @@
+==================
+Inconsistent dedent
+==================
+
+<RootView>:
+    Label:
+        text: "Hello"
+      color: 1, 1, 1, 1
+
+---
+
+(source_file
+  (rule
+    (selector
+      (class_name))
+    (block
+      (widget
+        (class_name)
+        (block
+          (property
+            (inline_property
+              (property_name
+                (identifier))
+              (expression
+                (string))))))
+      (indentation_error)
+      (property
+        (inline_property
+          (property_name
+            (identifier))
+          (expression
+            (number)
+            (punctuation)
+            (number)
+            (punctuation)
+            (number)
+            (punctuation)
+            (number)))))))

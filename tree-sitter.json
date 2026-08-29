@@ -1,0 +1,26 @@
+{
+  "grammars": [
+    {
+      "name": "kivy",
+      "camelcase": "Kivy",
+      "scope": "source.kivy",
+      "path": ".",
+      "file-types": [
+        "kv"
+      ],
+      "injection-regex": "^kivy$",
+      "highlights": "queries/kivy/highlights.scm",
+      "injections": "queries/kivy/injections.scm"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Tree-sitter grammar for the Kivy language",
+    "authors": [
+      {
+        "name": "Kivy LSP contributors"
+      }
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "tree-sitter-kivy",
+  "version": "0.1.0",
+  "description": "Tree-sitter grammar for the Kivy language",
+  "license": "MIT",
+  "homepage": "https://github.com/gibrilhamideh/tree-sitter-kivy#readme",
+  "bugs": {
+    "url": "https://github.com/gibrilhamideh/tree-sitter-kivy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gibrilhamideh/tree-sitter-kivy.git"
+  },
+  "keywords": [
+    "incremental",
+    "parsing",
+    "tree-sitter",
+    "kivy",
+    "kv"
+  ],
+  "files": [
+    "grammar.js",
+    "tree-sitter.json",
+    "queries",
+    "src"
+  ],
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "test": "tree-sitter test"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "0.26.13"
+  },
+  "allowScripts": {
+    "tree-sitter-cli@0.26.13": true
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.kivy",
+      "file-types": [
+        "kv"
+      ],
+      "injection-regex": "^kivy$"
+    }
+  ]
+}

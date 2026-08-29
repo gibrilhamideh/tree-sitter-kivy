@@ -1,0 +1,84 @@
+==================
+Parenthesized property expression
+==================
+
+<RootView>:
+    text:
+        (
+        "enabled"
+        if root.enabled
+        else "disabled"
+        )
+    width: dp(120)
+
+---
+
+(source_file
+  (rule
+    (selector
+      (class_name))
+    (block
+      (property
+        (multiline_property
+          (property_name
+            (identifier))
+          (multiline_expression
+            (expression
+              (parenthesized_expression
+                (string)
+                (identifier)
+                (identifier)
+                (punctuation)
+                (identifier)
+                (identifier)
+                (string))))))
+      (property
+        (inline_property
+          (property_name
+            (identifier))
+          (expression
+            (identifier)
+            (parenthesized_expression
+              (number))))))))
+
+==================
+Backslash property expression
+==================
+
+<RootView>:
+    text:
+        "enabled" \
+        if root.enabled \
+        else "disabled"
+    width: dp(120)
+
+---
+
+(source_file
+  (rule
+    (selector
+      (class_name))
+    (block
+      (property
+        (multiline_property
+          (property_name
+            (identifier))
+          (multiline_expression
+            (expression
+              (string)
+              (line_continuation)
+              (identifier)
+              (identifier)
+              (punctuation)
+              (identifier)
+              (line_continuation)
+              (identifier)
+              (string)))))
+      (property
+        (inline_property
+          (property_name
+            (identifier))
+          (expression
+            (identifier)
+            (parenthesized_expression
+              (number))))))))

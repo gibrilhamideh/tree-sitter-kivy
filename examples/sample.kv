@@ -1,0 +1,28 @@
+#:import dp kivy.metrics.dp
+
+<StatusCard@BoxLayout>:
+    orientation: "vertical"
+    padding: dp(12)
+    values:
+        (
+        {}
+        if root.enabled
+        else
+        {
+        "status":
+        root.status,
+        }
+        )
+
+    Label:
+        id: title_label
+        text:
+            (
+            "Enabled"
+            if root.enabled
+            else "Disabled"
+            )
+
+    Button:
+        id: submit_button
+        text: "Submit"
